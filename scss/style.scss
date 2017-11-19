@@ -1,0 +1,85 @@
+/*!
+Theme Name: Bootsmooth UIkit
+Theme URI: http://bootsmooth.com/wordpress-theme/
+Author: Clarence Pearson
+Author URI:  http://bootsmooth.com/author
+Description: WordPress Theme for Developers
+Version: 4.0.0
+License: GPL 
+License URI: http://bootsmooth.com/license
+Text Domain: 
+Tags:
+*/
+
+@import "variables";
+
+@import "../node_modules/uikit/src/scss/variables";
+@import "../node_modules/uikit/src/scss/variables-theme";
+
+
+@import "../node_modules/uikit/src/scss/uikit";
+@import "../node_modules/uikit/src/scss/uikit-theme";
+
+// footer 
+footer.page-footer {
+    nav {
+        .uk-container {
+            width: 100%;
+        }
+        .uk-navbar-item {
+            padding-left: 0;
+        }
+    }
+    .page-footer-info {
+        text-align: center;
+    }
+}
+
+// container padding !important
+.uk-container {
+    padding-left: $container-padding-horizontal !important;
+    padding-right: $container-padding-horizontal !important;
+}
+
+/* Phone landscape and bigger */
+@media (min-width: $breakpoint-small) {
+
+    .uk-container {
+        padding-left: $container-padding-horizontal-s !important;
+        padding-right: $container-padding-horizontal-s !important;
+    }
+
+}
+
+/* Tablet landscape and bigger */
+@media (min-width: $breakpoint-medium) {
+
+    .uk-container {
+        padding-left: $container-padding-horizontal-m !important;
+        padding-right: $container-padding-horizontal-m !important;
+    }
+
+}
+
+// offcanas
+.uk-offcanvas-bar {
+    @extend .uk-box-shadow-large;
+    background-color: $global-muted-background;
+    
+    .uk-search-default .uk-search-input {
+        background-color: #fff;
+    }
+}
+
+// single 
+.single {
+    h1 {
+        line-height: 1.5;
+    }
+    header.uk-background-cover {
+        h1, h2, h3, p {
+            color: #fff;
+            text-shadow: 2px 2px 6px #000;
+        }
+    }
+}

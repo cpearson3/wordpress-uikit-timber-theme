@@ -1,0 +1,29 @@
+{% block content %}
+<div class="uk-card uk-card-default">
+	{% if post.get_thumbnail %}
+    <div class="uk-card-media-top">
+    	<a href="{{post.link}}">
+    	    <div class="uk-inline-clip uk-transition-toggle  uk-light">
+			<img class="responsive-img uk-transition-scale-up uk-transition-opaque" src="{{post.thumbnail.src}}" />
+			</div>
+		</a>
+	</div>
+    <div class="uk-card-body">
+        <div class="uk-card-title">{{post.title}}</div>
+        <p class="uk-article-meta">
+        	{{ post.post_date|date('F j, Y') }} | {{ post.terms('category') | join(', ') }}
+		</p>
+		<p><a href="{{post.link}}">Read</a></p>
+    </div>
+    {% else %}
+    <div class="uk-card-body">
+        <div class="uk-card-title">{{post.title}}</div>
+        <p class="uk-article-meta">
+        	{{ post.post_date|date('F j, Y') }} | {{ post.terms('category') | join(', ') }}
+		</p>
+        <p>{{post.post_content|excerpt(40)}}...</p>
+        <p><a href="{{post.link}}">Read</a></p>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

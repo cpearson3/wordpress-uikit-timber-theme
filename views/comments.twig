@@ -1,0 +1,16 @@
+{% if post.comment_status != 'closed' %}
+	<section class="comments">
+		<div class="respond">
+			<h3 class="h2">Comments</h3>
+			{{ fn('comment_form') }}
+		</div>
+		<div class="responses">
+			{% for cmt in post.get_comments() %}
+				<div class="blog-comment {{comment.comment_type}}" id="blog-comment-{{comment.ID}}">
+                	<h5 class="comment-author">{{comment.author.name}} says</h5>
+                	<div class="comment-content">{{comment.comment_content|wpautop}}</div>
+                </div>
+			{% endfor %}
+		</div>
+	</section>
+{% endif %}

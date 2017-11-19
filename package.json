@@ -1,0 +1,26 @@
+{
+  "name": "bootsmooth-wordpress",
+  "version": "4.0.1",
+  "description": "Bootsmooth WordPress Theme",
+  "keywords": [
+    "wordpress"
+  ],
+  "author": "Clarence Pearson",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.22.0",
+    "babelify": "^7.3.0",
+    "browserify": "^14.1.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-connect": "^5.0.0",
+    "gulp-csso": "^2.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.2",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "uikit": "^3.0.0-beta.30"
+  }
+}
