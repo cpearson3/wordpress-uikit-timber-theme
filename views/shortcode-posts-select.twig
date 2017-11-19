@@ -1,0 +1,5 @@
+<select onchange="location.href = $(this).val()">
+{% for post in posts %}
+    <option value="{{post.get_link}}">{{post.title}}</option>
+{% endfor %}    
+</select>

@@ -1,25 +1,20 @@
-# Bootsmooth Wordpress Theme
+# Bootsmooth UIKit Wordpress Theme
 
-A Wordpress Starter Theme built with Bootsmooth and the [Timber Starter Theme](https://github.com/timber/starter-theme).
-
-# Features
-
-* Modern build system for your WordPress stylesheets and javascript sources using Node, Gulp and Sass
-* Page layouts built with Timber, a plugin to write WordPress themes with object-oriented code and the Twig Template Engine
+A Wordpress Starter Theme built with [UIKit 3](https://getuikit.com/) and the [Timber Starter Theme](https://github.com/timber/starter-theme).
 
 ## Installation and setup
 
 1. Open a terminal and change to your wp-content/themes folder
-2. Clone the repository: git clone https://github.com/cpearson3/bootsmooth-wordpress-theme.git
-3. Install node, npm, bower, and gulp
-4. Install project dependencies: npm install; bower install
-5. Build stylesheet and javascript: gulp build
+2. Clone the repository: git clone https://github.com/cpearson3/bootsmooth-uikit-theme.git
+3. Install node, npm, and gulp
+4. Install project dependencies: npm install
+5. Build stylesheet and javascript: gulp
 
 ### Activating the theme
 
 1. Login to the WordPress admin panel
 2. Go to Appearance > Themes
-3. Select Bootsmooth WordPress
+3. Select Bootsmooth UIKit
 4. Click Activate and reload the site
 
 ## Customizing the stylesheet

@@ -1,0 +1,11 @@
+<div class="uk-grid">
+{% for post in blogs %}
+    <div class="uk-width-1-3@s">
+        <div class="uk-card uk-card-default uk-card-body">
+        <p><a href="{{post.link}}">{{post.title}}</a><br>
+        <span class="uk-article-meta">{{post.date | date}}</span>
+        </p>
+        </div>
+    </div>
+{% endfor %}
+</div>

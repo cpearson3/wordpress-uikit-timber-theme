@@ -11,10 +11,17 @@
         <p class="uk-light">{{post.date | date}}</p>
     </div>
 </header>
-<div class="uk-section">
-	<article class="uk-container uk-width-2-3@s uk-article post-type-{{post.post_type}}" id="post-{{post.ID}}">
-		{{post.content}}
-	</article>
-</div>
+<section class="uk-section">
+	<div class="uk-container uk-width-2-3@s uk-article post-type-{{post.post_type}}" id="post-{{post.ID}}">
+	    <article>
+	        {{post.content}}
+	    </article>
+	    <hr>
+	    <h4>Latest Posts</h4>
+	    {% filter shortcodes %}
+        [posts grid=1]
+        {% endfilter %}
+	</div>
+</section>
 {% endblock %}
  
