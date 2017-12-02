@@ -5,8 +5,8 @@ Theme URI: http://bootsmooth.com/wordpress-theme/
 Author: Clarence Pearson
 Author URI:  http://bootsmooth.com/author
 Description: WordPress Theme for Developers
-Version: 4.0.0
-License: GPL 
+Version: 1.1.0
+License: MIT License 
 License URI: http://bootsmooth.com/license
 Text Domain: 
 Tags:
@@ -959,13 +959,14 @@ a.uk-link-reset:hover,
  * Note: 1. - 7. is required for `button` elements. Needed for Close and Form Icon component.
  * 1. Remove margins in Chrome, Safari and Opera.
  * 2. Remove borders for `button`.
- * 3. Address `overflow` set to `hidden` in IE.
- * 4. Correct `font` properties and `color` not being inherited for `button`.
- * 5. Remove the inheritance of text transform in Edge, Firefox, and IE.
- * 6. Remove default `button` padding and background color
- * 7. Style
- * 8. Fill all SVG elements with the current text color if no `fill` attribute is set
- * 9. Let the container fit the height of the icon
+ * 3. Remove border-radius in Chrome.
+ * 4. Address `overflow` set to `hidden` in IE.
+ * 5. Correct `font` properties and `color` not being inherited for `button`.
+ * 6. Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 7. Remove default `button` padding and background color
+ * 8. Style
+ * 9. Fill all SVG elements with the current text color if no `fill` attribute is set
+ * 10. Let the container fit the height of the icon
  */
 .uk-icon {
   /* 1 */
@@ -973,20 +974,22 @@ a.uk-link-reset:hover,
   /* 2 */
   border: none;
   /* 3 */
-  overflow: visible;
+  border-radius: 0;
   /* 4 */
+  overflow: visible;
+  /* 5 */
   font: inherit;
   color: inherit;
-  /* 5 */
+  /* 6 */
   text-transform: none;
-  /* 6. */
+  /* 7. */
   padding: 0;
   background-color: transparent;
-  /* 7 */
-  display: inline-block;
   /* 8 */
-  fill: currentcolor;
+  display: inline-block;
   /* 9 */
+  fill: currentcolor;
+  /* 10 */
   line-height: 0; }
 
 /* Required for `button`. */
@@ -1512,7 +1515,7 @@ select.uk-form-width-xsmall {
   background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2224%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Cpolygon%20fill%3D%22%23999%22%20points%3D%2212%201%209%206%2015%206%22%3E%3C%2Fpolygon%3E%0A%20%20%20%20%3Cpolygon%20fill%3D%22%23999%22%20points%3D%2212%2013%209%208%2015%208%22%3E%3C%2Fpolygon%3E%0A%3C%2Fsvg%3E%0A"); }
 
 /* Radio and checkbox
- * Note: Only works in Chrome, Safari, Opera and Edge
+ * Note: Does not work in IE11
  ========================================================================== */
 /*
  * 1. Style
@@ -1535,6 +1538,7 @@ select.uk-form-width-xsmall {
   vertical-align: middle;
   /* 4 */
   -webkit-appearance: none;
+  -moz-appearance: none;
   /* 5 */
   background-color: #ebebeb;
   /* 6 */
@@ -1755,57 +1759,60 @@ select.uk-form-width-xsmall {
 /*
  * 1. Remove margins in Chrome, Safari and Opera.
  * 2. Remove borders for `button`.
- * 3. Address `overflow` set to `hidden` in IE.
- * 4. Correct `font` properties and `color` not being inherited for `button`.
- * 5. Remove the inheritance of text transform in Edge, Firefox, and IE.
- * 6. Style
- * 7. `line-height` is used to create a height because it also centers the text vertically for `a` elements.
+ * 3. Remove border-radius in Chrome.
+ * 4. Address `overflow` set to `hidden` in IE.
+ * 5. Correct `font` properties and `color` not being inherited for `button`.
+ * 6. Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 7. Style
+ * 8. `line-height` is used to create a height because it also centers the text vertically for `a` elements.
  *    Better would be to use height and flexbox to center the text vertically but flexbox doesn't work in Firefox on `button` elements.
- * 8. Align text if button has a width
- * 9. Required for `a`.
+ * 9. Align text if button has a width
+ * 10. Required for `a`.
  */
-.uk-button {
+.uk-button, .button {
   /* 1 */
   margin: 0;
   /* 2 */
   border: none;
   /* 3 */
-  overflow: visible;
+  border-radius: 0;
   /* 4 */
+  overflow: visible;
+  /* 5 */
   font: inherit;
   color: inherit;
-  /* 5 */
-  text-transform: none;
   /* 6 */
+  text-transform: none;
+  /* 7 */
   display: inline-block;
   box-sizing: border-box;
   padding: 0 30px;
   vertical-align: middle;
   font-size: 16px;
-  /* 7 */
-  line-height: 40px;
   /* 8 */
-  text-align: center;
+  line-height: 40px;
   /* 9 */
+  text-align: center;
+  /* 10 */
   text-decoration: none; }
 
-.uk-button:not(:disabled) {
+.uk-button:not(:disabled), .button:not(:disabled) {
   cursor: pointer; }
 
 /*
  * Remove the inner border and padding in Firefox.
  */
-.uk-button::-moz-focus-inner {
+.uk-button::-moz-focus-inner, .button::-moz-focus-inner {
   border: 0;
   padding: 0; }
 
 /* Hover */
-.uk-button:hover {
+.uk-button:hover, .button:hover {
   /* 8 */
   text-decoration: none; }
 
 /* Focus */
-.uk-button:focus {
+.uk-button:focus, .button:focus {
   outline: none; }
 
 /* OnClick + Active */
@@ -2078,9 +2085,6 @@ select.uk-form-width-xsmall {
 .uk-section-secondary {
   background: #222; }
 
-/*
- * Indicate that an image or video is used as background
- */
 /* Overlap modifier
  ========================================================================== */
 /*
@@ -2155,7 +2159,7 @@ select.uk-form-width-xsmall {
  ========================================================================== */
 /*
  * 1. Allow cells to wrap into the next line
- * 2. Reset lists
+ * 2. Reset list
  */
 .uk-grid {
   display: -ms-flexbox;
@@ -3187,44 +3191,8 @@ select.uk-form-width-xsmall {
 .uk-search-input::-webkit-input-placeholder {
   color: #999; }
 
-/* Icon
+/* Icon (Adopts `uk-icon`)
  ========================================================================== */
-/*
- * Adopts `uk-icon`
- * Required for `button`
- * 1. Remove margins in Chrome, Safari and Opera.
- * 2. Remove borders for `button`.
- * 3. Address `overflow` set to `hidden` in IE.
- * 4. Correct `font` properties and `color` not being inherited for `button`.
- * 5. Remove the inheritance of text transform in Edge, Firefox, and IE.
- * 6. Remove default `button` padding and background color
- * 7. Required for `button`.
- */
-.uk-search-icon {
-  /* 1 */
-  margin: 0;
-  /* 2 */
-  border: none;
-  /* 3 */
-  overflow: visible;
-  /* 4 */
-  font: inherit;
-  color: inherit;
-  /* 5 */
-  text-transform: none;
-  /* 6. */
-  padding: 0;
-  background-color: transparent;
-  /* 7 */
-  cursor: pointer; }
-
-/*
- * Remove the inner border and padding in Firefox. Required for `button`.
- */
-.uk-search-icon::-moz-focus-inner {
-  border: 0;
-  padding: 0; }
-
 /*
  * Remove default focus style
  */
@@ -3637,7 +3605,7 @@ ul.uk-nav-sub {
 /* Nav
  ========================================================================== */
 /*
- * 1. Reset lists
+ * 1. Reset list
  */
 .uk-navbar-nav {
   display: -ms-flexbox;
@@ -3889,7 +3857,7 @@ ul.uk-nav-sub {
 /*
  * 1. Allow items to wrap into the next line
  * 2. Gutter
- * 3. Reset lists
+ * 3. Reset list
  */
 .uk-subnav {
   display: -ms-flexbox;
@@ -4004,7 +3972,7 @@ ul.uk-nav-sub {
  ========================================================================== */
 /*
  * 1. Allow items to wrap into the next line
- * 2. Reset lists
+ * 2. Reset list
  */
 .uk-breadcrumb {
   display: -ms-flexbox;
@@ -4060,7 +4028,7 @@ ul.uk-nav-sub {
 /*
  * 1. Allow items to wrap into the next line
  * 2. Gutter
- * 3. Reset lists
+ * 3. Reset list
  */
 .uk-pagination {
   display: -ms-flexbox;
@@ -4123,7 +4091,7 @@ ul.uk-nav-sub {
 /*
  * 1. Allow items to wrap into the next line
  * 2. Gutter
- * 3. Reset lists
+ * 3. Reset list
  */
 .uk-tab {
   display: -ms-flexbox;
@@ -4206,7 +4174,7 @@ ul.uk-nav-sub {
   padding-left: 0; }
 
 .uk-tab-left > * > a {
-  text-align: right; }
+  text-align: left; }
 
 .uk-tab-right > * > a {
   text-align: left; }
@@ -4218,7 +4186,7 @@ ul.uk-nav-sub {
  * Adopts `uk-icon`
  */
 .uk-slidenav {
-  padding: 5px;
+  padding: 5px 10px;
   color: rgba(102, 102, 102, 0.6); }
 
 /* Hover + Focus */
@@ -4239,6 +4207,11 @@ ul.uk-nav-sub {
 /*
  * Next
  */
+/* Size modifier
+ ========================================================================== */
+.uk-slidenav-large {
+  padding: 10px 10px; }
+
 /* Container
  ========================================================================== */
 .uk-slidenav-container {
@@ -4251,7 +4224,7 @@ ul.uk-nav-sub {
  ========================================================================== */
 /*
  * 1. Allow items to wrap into the next line
- * 2. Reset lists
+ * 2. Reset list
  * 3. Gutter
  */
 .uk-dotnav {
@@ -4289,7 +4262,7 @@ ul.uk-nav-sub {
  */
 .uk-dotnav > * > * {
   display: block;
-  box-sizing: content-box;
+  box-sizing: border-box;
   width: 16px;
   height: 16px;
   border-radius: 50%;
@@ -4334,6 +4307,75 @@ ul.uk-nav-sub {
   padding-top: 15px; }
 
 /* ========================================================================
+   Component: Thumbnav
+ ========================================================================== */
+/*
+ * 1. Allow items to wrap into the next line
+ * 2. Reset list
+ * 3. Gutter
+ */
+.uk-thumbnav {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  /* 1 */
+  -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  /* 2 */
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  /* 3 */
+  margin-left: -15px; }
+
+/*
+ * 1. Space is allocated solely based on content dimensions: 0 0 auto
+ * 2. Gutter
+ */
+.uk-thumbnav > * {
+  /* 1 */
+  -ms-flex: none;
+  -webkit-flex: none;
+  flex: none;
+  /* 2 */
+  padding-left: 15px; }
+
+/* Items
+ ========================================================================== */
+/*
+ * Items
+ */
+.uk-thumbnav > * > * {
+  display: inline-block; }
+
+/* Hover + Focus */
+.uk-thumbnav > * > :hover,
+.uk-thumbnav > * > :focus {
+  outline: none; }
+
+/* Active */
+/* Modifier: 'uk-thumbnav-vertical'
+ ========================================================================== */
+/*
+ * 1. Change direction
+ * 2. Gutter
+ */
+.uk-thumbnav-vertical {
+  /* 1 */
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  /* 2 */
+  margin-left: 0;
+  margin-top: -15px; }
+
+/* 2 */
+.uk-thumbnav-vertical > * {
+  padding-left: 0;
+  padding-top: 15px; }
+
+/* ========================================================================
    Component: Accordion
  ========================================================================== */
 .uk-accordion {
@@ -4361,12 +4403,12 @@ ul.uk-nav-sub {
 /*
  * Micro clearfix
  */
-.uk-accordion-content:before,
-.uk-accordion-content:after {
+.uk-accordion-content::before,
+.uk-accordion-content::after {
   content: "";
   display: table; }
 
-.uk-accordion-content:after {
+.uk-accordion-content::after {
   clear: both; }
 
 /*
@@ -4567,8 +4609,10 @@ ul.uk-nav-sub {
 /*
  * 1. Create position context for spinner and close button
  * 2. Dimensions
- * 3. Style
- * 4. Slide-in transition
+ * 3. Fix `max-width: 100%` not working in combination with flex and responsive images in IE11
+ *    `!important` needed to overwrite `uk-width-auto`. See `#modal-media-image` in tests
+ * 4. Style
+ * 5. Slide-in transition
  */
 .uk-modal-dialog {
   /* 1 */
@@ -4577,10 +4621,11 @@ ul.uk-nav-sub {
   box-sizing: border-box;
   margin: 0 auto;
   width: 600px;
-  max-width: 100%;
   /* 3 */
-  background: #fff;
+  max-width: calc(100% - 0.01px) !important;
   /* 4 */
+  background: #fff;
+  /* 5 */
   opacity: 0;
   -webkit-transform: translateY(-100px);
   transform: translateY(-100px);
@@ -4692,16 +4737,26 @@ ul.uk-nav-sub {
  */
 /*
  * Outside
+ * 1. Prevent scrollbar on small devices
  */
 .uk-modal-close-outside {
   top: 0;
-  right: 0;
-  -webkit-transform: translate(100%, -100%);
-  transform: translate(100%, -100%);
+  /* 1 */
+  right: -5px;
+  -webkit-transform: translate(0, -100%);
+  transform: translate(0, -100%);
   color: white; }
 
 .uk-modal-close-outside:hover {
   color: #fff; }
+
+/* Tablet landscape and bigger */
+@media (min-width: 960px) {
+  /* 1 */
+  .uk-modal-close-outside {
+    right: 0;
+    -webkit-transform: translate(100%, -100%);
+    transform: translate(100%, -100%); } }
 
 /*
  * Full
@@ -4758,11 +4813,12 @@ ul.uk-nav-sub {
  * 1. Center child within the viewport
  * 2. Not visible by default
  * 3. Color needed for spinner icon
- * 4. Responsiveness
+ * 4. Optimize animation
+ * 5. Responsiveness
  *    Using `vh` for `max-height` to fix image proportions after resize in Safari and Opera
  *    Using `vh` and `vw` to make responsive image work in IE11
  */
-.uk-lightbox-item {
+.uk-lightbox-items > * {
   /* 1 */
   position: absolute;
   top: 0;
@@ -4777,19 +4833,21 @@ ul.uk-nav-sub {
   -ms-flex-align: center;
   -webkit-align-items: center;
   align-items: center;
-  /* 2 */
-  color: rgba(255, 255, 255, 0.7); }
+  /* 3 */
+  color: rgba(255, 255, 255, 0.7);
+  /* 4 */
+  will-change: transform, opacity; }
 
-/* 4 */
-.uk-lightbox-item > * {
+/* 5 */
+.uk-lightbox-items > * > * {
   max-width: 100vw;
   max-height: 100vh; }
 
-.uk-lightbox-item > :not(iframe) {
+.uk-lightbox-items > * > :not(iframe) {
   width: auto;
   height: auto; }
 
-.uk-lightbox-item.uk-active {
+.uk-lightbox-items > .uk-active {
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex; }
@@ -4851,6 +4909,64 @@ ul.uk-nav-sub {
 .uk-lightbox-iframe {
   width: 80%;
   height: 80%; }
+
+/* ========================================================================
+   Component: Slideshow
+ ========================================================================== */
+/*
+ * 1. Prevent tab highlighting on iOS.
+ */
+.uk-slideshow {
+  /* 1 */
+  -webkit-tap-highlight-color: transparent; }
+
+/* Items
+ ========================================================================== */
+/*
+ * 1. Create position and stacking context
+ * 2. Reset list
+ * 3. Clip child elements
+ * 4. Prevent displaying the callout information on iOS.
+ */
+.uk-slideshow-items {
+  /* 1 */
+  position: relative;
+  z-index: 0;
+  /* 2 */
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  /* 3 */
+  overflow: hidden;
+  /* 4 */
+  -webkit-touch-callout: none; }
+
+/* Item
+ ========================================================================== */
+/*
+ * 1. Position items above each other
+ * 2. Take the full width
+ * 3. Clip child elements, e.g. for `uk-cover`
+ * 4. Optimize animation
+ */
+.uk-slideshow-items > * {
+  /* 1 */
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* 2 */
+  right: 0;
+  bottom: 0;
+  /* 3 */
+  overflow: hidden;
+  /* 4 */
+  will-change: transform, opacity; }
+
+/*
+ * Hide not active items
+ */
+.uk-slideshow-items > :not(.uk-active) {
+  display: none; }
 
 /* ========================================================================
    Component: Sticky
@@ -5095,7 +5211,7 @@ ul.uk-nav-sub {
    Component: Switcher
  ========================================================================== */
 /*
- * Reset lists
+ * Reset list
  */
 .uk-switcher {
   margin: 0;
@@ -5121,7 +5237,7 @@ ul.uk-nav-sub {
  ========================================================================== */
 /*
  * 1. Allow items to wrap into the next line
- * 2. Reset lists
+ * 2. Reset list
  * 3. Gutter
  */
 .uk-iconnav {
@@ -6813,6 +6929,9 @@ td.uk-text-break {
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%); }
 
+iframe.uk-cover {
+  pointer-events: none; }
+
 /* Container
  ========================================================================== */
 /*
@@ -8182,7 +8301,8 @@ td.uk-text-break {
   display: table;
   /* 2 */
   width: -moz-max-content;
-  max-width: 100%; }
+  max-width: 100%;
+  box-sizing: border-box; }
 
 /* Vertical */
 .uk-position-center-left,
@@ -8204,7 +8324,11 @@ td.uk-text-break {
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
   /* 1 */
-  display: table; }
+  display: table;
+  /* 2 */
+  width: -moz-max-content;
+  max-width: 100%;
+  box-sizing: border-box; }
 
 .uk-position-top-center {
   top: 0; }
@@ -8277,6 +8401,42 @@ td.uk-text-break {
   -webkit-transform: translateX(-50%) translateX(-30px);
   transform: translateX(-50%) translateX(-30px); }
 
+/*
+ * Large
+ */
+.uk-position-large {
+  margin: 30px; }
+
+.uk-position-large.uk-position-center {
+  -webkit-transform: translate(-50%, -50%) translate(-30px, -30px);
+  transform: translate(-50%, -50%) translate(-30px, -30px); }
+
+.uk-position-large.uk-position-center-left,
+.uk-position-large.uk-position-center-right {
+  -webkit-transform: translateY(-50%) translateY(-30px);
+  transform: translateY(-50%) translateY(-30px); }
+
+.uk-position-large.uk-position-top-center,
+.uk-position-large.uk-position-bottom-center {
+  -webkit-transform: translateX(-50%) translateX(-30px);
+  transform: translateX(-50%) translateX(-30px); }
+
+/* Desktop and bigger */
+@media (min-width: 1200px) {
+  .uk-position-large {
+    margin: 50px; }
+  .uk-position-large.uk-position-center {
+    -webkit-transform: translate(-50%, -50%) translate(-50px, -50px);
+    transform: translate(-50%, -50%) translate(-50px, -50px); }
+  .uk-position-large.uk-position-center-left,
+  .uk-position-large.uk-position-center-right {
+    -webkit-transform: translateY(-50%) translateY(-50px);
+    transform: translateY(-50%) translateY(-50px); }
+  .uk-position-large.uk-position-top-center,
+  .uk-position-large.uk-position-bottom-center {
+    -webkit-transform: translateX(-50%) translateX(-50px);
+    transform: translateX(-50%) translateX(-50px); } }
+
 /* ========================================================================
    Component: Transition
  ========================================================================== */
@@ -8300,7 +8460,8 @@ td.uk-text-break {
   opacity: 0; }
 
 .uk-transition-toggle:hover [class*='uk-transition-fade'],
-.uk-transition-toggle.uk-hover [class*='uk-transition-fade'] {
+.uk-transition-toggle.uk-hover [class*='uk-transition-fade'],
+.uk-transition-active.uk-active [class*='uk-transition-fade'] {
   opacity: 1; }
 
 /*
@@ -8314,18 +8475,20 @@ td.uk-text-break {
   -webkit-transform: scale3d(1, 1, 1);
   transform: scale3d(1, 1, 1); }
 
-.uk-transition-toggle:hover .uk-transition-scale-up,
-.uk-transition-toggle.uk-hover .uk-transition-scale-up {
-  opacity: 1;
-  -webkit-transform: scale3d(1.1, 1.1, 1);
-  transform: scale3d(1.1, 1.1, 1); }
-
 .uk-transition-scale-down {
   -webkit-transform: scale3d(1.1, 1.1, 1);
   transform: scale3d(1.1, 1.1, 1); }
 
+.uk-transition-toggle:hover .uk-transition-scale-up,
+.uk-transition-toggle.uk-hover .uk-transition-scale-up,
+.uk-transition-active.uk-active .uk-transition-scale-up {
+  opacity: 1;
+  -webkit-transform: scale3d(1.1, 1.1, 1);
+  transform: scale3d(1.1, 1.1, 1); }
+
 .uk-transition-toggle:hover .uk-transition-scale-down,
-.uk-transition-toggle.uk-hover .uk-transition-scale-down {
+.uk-transition-toggle.uk-hover .uk-transition-scale-down,
+.uk-transition-active.uk-active .uk-transition-scale-down {
   opacity: 1;
   -webkit-transform: scale3d(1, 1, 1);
   transform: scale3d(1, 1, 1); }
@@ -8386,7 +8549,8 @@ td.uk-text-break {
 
 /* Hover */
 .uk-transition-toggle:hover [class*='uk-transition-slide'],
-.uk-transition-toggle.uk-hover [class*='uk-transition-slide'] {
+.uk-transition-toggle.uk-hover [class*='uk-transition-slide'],
+.uk-transition-active.uk-active [class*='uk-transition-slide'] {
   opacity: 1;
   -webkit-transform: translateX(0) translateY(0);
   transform: translateX(0) translateY(0); }
@@ -9485,13 +9649,14 @@ a.uk-link-reset:hover,
  * Note: 1. - 7. is required for `button` elements. Needed for Close and Form Icon component.
  * 1. Remove margins in Chrome, Safari and Opera.
  * 2. Remove borders for `button`.
- * 3. Address `overflow` set to `hidden` in IE.
- * 4. Correct `font` properties and `color` not being inherited for `button`.
- * 5. Remove the inheritance of text transform in Edge, Firefox, and IE.
- * 6. Remove default `button` padding and background color
- * 7. Style
- * 8. Fill all SVG elements with the current text color if no `fill` attribute is set
- * 9. Let the container fit the height of the icon
+ * 3. Remove border-radius in Chrome.
+ * 4. Address `overflow` set to `hidden` in IE.
+ * 5. Correct `font` properties and `color` not being inherited for `button`.
+ * 6. Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 7. Remove default `button` padding and background color
+ * 8. Style
+ * 9. Fill all SVG elements with the current text color if no `fill` attribute is set
+ * 10. Let the container fit the height of the icon
  */
 .uk-icon {
   /* 1 */
@@ -9499,20 +9664,22 @@ a.uk-link-reset:hover,
   /* 2 */
   border: none;
   /* 3 */
-  overflow: visible;
+  border-radius: 0;
   /* 4 */
+  overflow: visible;
+  /* 5 */
   font: inherit;
   color: inherit;
-  /* 5 */
+  /* 6 */
   text-transform: none;
-  /* 6. */
+  /* 7. */
   padding: 0;
   background-color: transparent;
-  /* 7 */
-  display: inline-block;
   /* 8 */
-  fill: currentcolor;
+  display: inline-block;
   /* 9 */
+  fill: currentcolor;
+  /* 10 */
   line-height: 0; }
 
 /* Required for `button`. */
@@ -10038,7 +10205,7 @@ select.uk-form-width-xsmall {
   background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2224%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Cpolygon%20fill%3D%22%23999%22%20points%3D%2212%201%209%206%2015%206%22%3E%3C%2Fpolygon%3E%0A%20%20%20%20%3Cpolygon%20fill%3D%22%23999%22%20points%3D%2212%2013%209%208%2015%208%22%3E%3C%2Fpolygon%3E%0A%3C%2Fsvg%3E%0A"); }
 
 /* Radio and checkbox
- * Note: Only works in Chrome, Safari, Opera and Edge
+ * Note: Does not work in IE11
  ========================================================================== */
 /*
  * 1. Style
@@ -10061,6 +10228,7 @@ select.uk-form-width-xsmall {
   vertical-align: middle;
   /* 4 */
   -webkit-appearance: none;
+  -moz-appearance: none;
   /* 5 */
   background-color: #ebebeb;
   /* 6 */
@@ -10281,57 +10449,60 @@ select.uk-form-width-xsmall {
 /*
  * 1. Remove margins in Chrome, Safari and Opera.
  * 2. Remove borders for `button`.
- * 3. Address `overflow` set to `hidden` in IE.
- * 4. Correct `font` properties and `color` not being inherited for `button`.
- * 5. Remove the inheritance of text transform in Edge, Firefox, and IE.
- * 6. Style
- * 7. `line-height` is used to create a height because it also centers the text vertically for `a` elements.
+ * 3. Remove border-radius in Chrome.
+ * 4. Address `overflow` set to `hidden` in IE.
+ * 5. Correct `font` properties and `color` not being inherited for `button`.
+ * 6. Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 7. Style
+ * 8. `line-height` is used to create a height because it also centers the text vertically for `a` elements.
  *    Better would be to use height and flexbox to center the text vertically but flexbox doesn't work in Firefox on `button` elements.
- * 8. Align text if button has a width
- * 9. Required for `a`.
+ * 9. Align text if button has a width
+ * 10. Required for `a`.
  */
-.uk-button {
+.uk-button, .button {
   /* 1 */
   margin: 0;
   /* 2 */
   border: none;
   /* 3 */
-  overflow: visible;
+  border-radius: 0;
   /* 4 */
+  overflow: visible;
+  /* 5 */
   font: inherit;
   color: inherit;
-  /* 5 */
-  text-transform: none;
   /* 6 */
+  text-transform: none;
+  /* 7 */
   display: inline-block;
   box-sizing: border-box;
   padding: 0 30px;
   vertical-align: middle;
   font-size: 16px;
-  /* 7 */
-  line-height: 40px;
   /* 8 */
-  text-align: center;
+  line-height: 40px;
   /* 9 */
+  text-align: center;
+  /* 10 */
   text-decoration: none; }
 
-.uk-button:not(:disabled) {
+.uk-button:not(:disabled), .button:not(:disabled) {
   cursor: pointer; }
 
 /*
  * Remove the inner border and padding in Firefox.
  */
-.uk-button::-moz-focus-inner {
+.uk-button::-moz-focus-inner, .button::-moz-focus-inner {
   border: 0;
   padding: 0; }
 
 /* Hover */
-.uk-button:hover {
+.uk-button:hover, .button:hover {
   /* 8 */
   text-decoration: none; }
 
 /* Focus */
-.uk-button:focus {
+.uk-button:focus, .button:focus {
   outline: none; }
 
 /* OnClick + Active */
@@ -10604,9 +10775,6 @@ select.uk-form-width-xsmall {
 .uk-section-secondary {
   background: #222; }
 
-/*
- * Indicate that an image or video is used as background
- */
 /* Overlap modifier
  ========================================================================== */
 /*
@@ -10681,7 +10849,7 @@ select.uk-form-width-xsmall {
  ========================================================================== */
 /*
  * 1. Allow cells to wrap into the next line
- * 2. Reset lists
+ * 2. Reset list
  */
 .uk-grid {
   display: -ms-flexbox;
@@ -11713,44 +11881,8 @@ select.uk-form-width-xsmall {
 .uk-search-input::-webkit-input-placeholder {
   color: #999; }
 
-/* Icon
+/* Icon (Adopts `uk-icon`)
  ========================================================================== */
-/*
- * Adopts `uk-icon`
- * Required for `button`
- * 1. Remove margins in Chrome, Safari and Opera.
- * 2. Remove borders for `button`.
- * 3. Address `overflow` set to `hidden` in IE.
- * 4. Correct `font` properties and `color` not being inherited for `button`.
- * 5. Remove the inheritance of text transform in Edge, Firefox, and IE.
- * 6. Remove default `button` padding and background color
- * 7. Required for `button`.
- */
-.uk-search-icon {
-  /* 1 */
-  margin: 0;
-  /* 2 */
-  border: none;
-  /* 3 */
-  overflow: visible;
-  /* 4 */
-  font: inherit;
-  color: inherit;
-  /* 5 */
-  text-transform: none;
-  /* 6. */
-  padding: 0;
-  background-color: transparent;
-  /* 7 */
-  cursor: pointer; }
-
-/*
- * Remove the inner border and padding in Firefox. Required for `button`.
- */
-.uk-search-icon::-moz-focus-inner {
-  border: 0;
-  padding: 0; }
-
 /*
  * Remove default focus style
  */
@@ -12163,7 +12295,7 @@ ul.uk-nav-sub {
 /* Nav
  ========================================================================== */
 /*
- * 1. Reset lists
+ * 1. Reset list
  */
 .uk-navbar-nav {
   display: -ms-flexbox;
@@ -12415,7 +12547,7 @@ ul.uk-nav-sub {
 /*
  * 1. Allow items to wrap into the next line
  * 2. Gutter
- * 3. Reset lists
+ * 3. Reset list
  */
 .uk-subnav {
   display: -ms-flexbox;
@@ -12530,7 +12662,7 @@ ul.uk-nav-sub {
  ========================================================================== */
 /*
  * 1. Allow items to wrap into the next line
- * 2. Reset lists
+ * 2. Reset list
  */
 .uk-breadcrumb {
   display: -ms-flexbox;
@@ -12586,7 +12718,7 @@ ul.uk-nav-sub {
 /*
  * 1. Allow items to wrap into the next line
  * 2. Gutter
- * 3. Reset lists
+ * 3. Reset list
  */
 .uk-pagination {
   display: -ms-flexbox;
@@ -12649,7 +12781,7 @@ ul.uk-nav-sub {
 /*
  * 1. Allow items to wrap into the next line
  * 2. Gutter
- * 3. Reset lists
+ * 3. Reset list
  */
 .uk-tab {
   display: -ms-flexbox;
@@ -12732,7 +12864,7 @@ ul.uk-nav-sub {
   padding-left: 0; }
 
 .uk-tab-left > * > a {
-  text-align: right; }
+  text-align: left; }
 
 .uk-tab-right > * > a {
   text-align: left; }
@@ -12744,7 +12876,7 @@ ul.uk-nav-sub {
  * Adopts `uk-icon`
  */
 .uk-slidenav {
-  padding: 5px;
+  padding: 5px 10px;
   color: rgba(102, 102, 102, 0.6); }
 
 /* Hover + Focus */
@@ -12765,6 +12897,11 @@ ul.uk-nav-sub {
 /*
  * Next
  */
+/* Size modifier
+ ========================================================================== */
+.uk-slidenav-large {
+  padding: 10px 10px; }
+
 /* Container
  ========================================================================== */
 .uk-slidenav-container {
@@ -12777,7 +12914,7 @@ ul.uk-nav-sub {
  ========================================================================== */
 /*
  * 1. Allow items to wrap into the next line
- * 2. Reset lists
+ * 2. Reset list
  * 3. Gutter
  */
 .uk-dotnav {
@@ -12815,7 +12952,7 @@ ul.uk-nav-sub {
  */
 .uk-dotnav > * > * {
   display: block;
-  box-sizing: content-box;
+  box-sizing: border-box;
   width: 16px;
   height: 16px;
   border-radius: 50%;
@@ -12860,6 +12997,75 @@ ul.uk-nav-sub {
   padding-top: 15px; }
 
 /* ========================================================================
+   Component: Thumbnav
+ ========================================================================== */
+/*
+ * 1. Allow items to wrap into the next line
+ * 2. Reset list
+ * 3. Gutter
+ */
+.uk-thumbnav {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  /* 1 */
+  -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  /* 2 */
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  /* 3 */
+  margin-left: -15px; }
+
+/*
+ * 1. Space is allocated solely based on content dimensions: 0 0 auto
+ * 2. Gutter
+ */
+.uk-thumbnav > * {
+  /* 1 */
+  -ms-flex: none;
+  -webkit-flex: none;
+  flex: none;
+  /* 2 */
+  padding-left: 15px; }
+
+/* Items
+ ========================================================================== */
+/*
+ * Items
+ */
+.uk-thumbnav > * > * {
+  display: inline-block; }
+
+/* Hover + Focus */
+.uk-thumbnav > * > :hover,
+.uk-thumbnav > * > :focus {
+  outline: none; }
+
+/* Active */
+/* Modifier: 'uk-thumbnav-vertical'
+ ========================================================================== */
+/*
+ * 1. Change direction
+ * 2. Gutter
+ */
+.uk-thumbnav-vertical {
+  /* 1 */
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  /* 2 */
+  margin-left: 0;
+  margin-top: -15px; }
+
+/* 2 */
+.uk-thumbnav-vertical > * {
+  padding-left: 0;
+  padding-top: 15px; }
+
+/* ========================================================================
    Component: Accordion
  ========================================================================== */
 .uk-accordion {
@@ -12887,12 +13093,12 @@ ul.uk-nav-sub {
 /*
  * Micro clearfix
  */
-.uk-accordion-content:before,
-.uk-accordion-content:after {
+.uk-accordion-content::before,
+.uk-accordion-content::after {
   content: "";
   display: table; }
 
-.uk-accordion-content:after {
+.uk-accordion-content::after {
   clear: both; }
 
 /*
@@ -13093,8 +13299,10 @@ ul.uk-nav-sub {
 /*
  * 1. Create position context for spinner and close button
  * 2. Dimensions
- * 3. Style
- * 4. Slide-in transition
+ * 3. Fix `max-width: 100%` not working in combination with flex and responsive images in IE11
+ *    `!important` needed to overwrite `uk-width-auto`. See `#modal-media-image` in tests
+ * 4. Style
+ * 5. Slide-in transition
  */
 .uk-modal-dialog {
   /* 1 */
@@ -13103,10 +13311,11 @@ ul.uk-nav-sub {
   box-sizing: border-box;
   margin: 0 auto;
   width: 600px;
-  max-width: 100%;
   /* 3 */
-  background: #fff;
+  max-width: calc(100% - 0.01px) !important;
   /* 4 */
+  background: #fff;
+  /* 5 */
   opacity: 0;
   -webkit-transform: translateY(-100px);
   transform: translateY(-100px);
@@ -13218,16 +13427,26 @@ ul.uk-nav-sub {
  */
 /*
  * Outside
+ * 1. Prevent scrollbar on small devices
  */
 .uk-modal-close-outside {
   top: 0;
-  right: 0;
-  -webkit-transform: translate(100%, -100%);
-  transform: translate(100%, -100%);
+  /* 1 */
+  right: -5px;
+  -webkit-transform: translate(0, -100%);
+  transform: translate(0, -100%);
   color: white; }
 
 .uk-modal-close-outside:hover {
   color: #fff; }
+
+/* Tablet landscape and bigger */
+@media (min-width: 960px) {
+  /* 1 */
+  .uk-modal-close-outside {
+    right: 0;
+    -webkit-transform: translate(100%, -100%);
+    transform: translate(100%, -100%); } }
 
 /*
  * Full
@@ -13284,11 +13503,12 @@ ul.uk-nav-sub {
  * 1. Center child within the viewport
  * 2. Not visible by default
  * 3. Color needed for spinner icon
- * 4. Responsiveness
+ * 4. Optimize animation
+ * 5. Responsiveness
  *    Using `vh` for `max-height` to fix image proportions after resize in Safari and Opera
  *    Using `vh` and `vw` to make responsive image work in IE11
  */
-.uk-lightbox-item {
+.uk-lightbox-items > * {
   /* 1 */
   position: absolute;
   top: 0;
@@ -13303,19 +13523,21 @@ ul.uk-nav-sub {
   -ms-flex-align: center;
   -webkit-align-items: center;
   align-items: center;
-  /* 2 */
-  color: rgba(255, 255, 255, 0.7); }
+  /* 3 */
+  color: rgba(255, 255, 255, 0.7);
+  /* 4 */
+  will-change: transform, opacity; }
 
-/* 4 */
-.uk-lightbox-item > * {
+/* 5 */
+.uk-lightbox-items > * > * {
   max-width: 100vw;
   max-height: 100vh; }
 
-.uk-lightbox-item > :not(iframe) {
+.uk-lightbox-items > * > :not(iframe) {
   width: auto;
   height: auto; }
 
-.uk-lightbox-item.uk-active {
+.uk-lightbox-items > .uk-active {
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex; }
@@ -13377,6 +13599,64 @@ ul.uk-nav-sub {
 .uk-lightbox-iframe {
   width: 80%;
   height: 80%; }
+
+/* ========================================================================
+   Component: Slideshow
+ ========================================================================== */
+/*
+ * 1. Prevent tab highlighting on iOS.
+ */
+.uk-slideshow {
+  /* 1 */
+  -webkit-tap-highlight-color: transparent; }
+
+/* Items
+ ========================================================================== */
+/*
+ * 1. Create position and stacking context
+ * 2. Reset list
+ * 3. Clip child elements
+ * 4. Prevent displaying the callout information on iOS.
+ */
+.uk-slideshow-items {
+  /* 1 */
+  position: relative;
+  z-index: 0;
+  /* 2 */
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  /* 3 */
+  overflow: hidden;
+  /* 4 */
+  -webkit-touch-callout: none; }
+
+/* Item
+ ========================================================================== */
+/*
+ * 1. Position items above each other
+ * 2. Take the full width
+ * 3. Clip child elements, e.g. for `uk-cover`
+ * 4. Optimize animation
+ */
+.uk-slideshow-items > * {
+  /* 1 */
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* 2 */
+  right: 0;
+  bottom: 0;
+  /* 3 */
+  overflow: hidden;
+  /* 4 */
+  will-change: transform, opacity; }
+
+/*
+ * Hide not active items
+ */
+.uk-slideshow-items > :not(.uk-active) {
+  display: none; }
 
 /* ========================================================================
    Component: Sticky
@@ -13621,7 +13901,7 @@ ul.uk-nav-sub {
    Component: Switcher
  ========================================================================== */
 /*
- * Reset lists
+ * Reset list
  */
 .uk-switcher {
   margin: 0;
@@ -13647,7 +13927,7 @@ ul.uk-nav-sub {
  ========================================================================== */
 /*
  * 1. Allow items to wrap into the next line
- * 2. Reset lists
+ * 2. Reset list
  * 3. Gutter
  */
 .uk-iconnav {
@@ -15339,6 +15619,9 @@ td.uk-text-break {
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%); }
 
+iframe.uk-cover {
+  pointer-events: none; }
+
 /* Container
  ========================================================================== */
 /*
@@ -16708,7 +16991,8 @@ td.uk-text-break {
   display: table;
   /* 2 */
   width: -moz-max-content;
-  max-width: 100%; }
+  max-width: 100%;
+  box-sizing: border-box; }
 
 /* Vertical */
 .uk-position-center-left,
@@ -16730,7 +17014,11 @@ td.uk-text-break {
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
   /* 1 */
-  display: table; }
+  display: table;
+  /* 2 */
+  width: -moz-max-content;
+  max-width: 100%;
+  box-sizing: border-box; }
 
 .uk-position-top-center {
   top: 0; }
@@ -16803,6 +17091,42 @@ td.uk-text-break {
   -webkit-transform: translateX(-50%) translateX(-30px);
   transform: translateX(-50%) translateX(-30px); }
 
+/*
+ * Large
+ */
+.uk-position-large {
+  margin: 30px; }
+
+.uk-position-large.uk-position-center {
+  -webkit-transform: translate(-50%, -50%) translate(-30px, -30px);
+  transform: translate(-50%, -50%) translate(-30px, -30px); }
+
+.uk-position-large.uk-position-center-left,
+.uk-position-large.uk-position-center-right {
+  -webkit-transform: translateY(-50%) translateY(-30px);
+  transform: translateY(-50%) translateY(-30px); }
+
+.uk-position-large.uk-position-top-center,
+.uk-position-large.uk-position-bottom-center {
+  -webkit-transform: translateX(-50%) translateX(-30px);
+  transform: translateX(-50%) translateX(-30px); }
+
+/* Desktop and bigger */
+@media (min-width: 1200px) {
+  .uk-position-large {
+    margin: 50px; }
+  .uk-position-large.uk-position-center {
+    -webkit-transform: translate(-50%, -50%) translate(-50px, -50px);
+    transform: translate(-50%, -50%) translate(-50px, -50px); }
+  .uk-position-large.uk-position-center-left,
+  .uk-position-large.uk-position-center-right {
+    -webkit-transform: translateY(-50%) translateY(-50px);
+    transform: translateY(-50%) translateY(-50px); }
+  .uk-position-large.uk-position-top-center,
+  .uk-position-large.uk-position-bottom-center {
+    -webkit-transform: translateX(-50%) translateX(-50px);
+    transform: translateX(-50%) translateX(-50px); } }
+
 /* ========================================================================
    Component: Transition
  ========================================================================== */
@@ -16826,7 +17150,8 @@ td.uk-text-break {
   opacity: 0; }
 
 .uk-transition-toggle:hover [class*='uk-transition-fade'],
-.uk-transition-toggle.uk-hover [class*='uk-transition-fade'] {
+.uk-transition-toggle.uk-hover [class*='uk-transition-fade'],
+.uk-transition-active.uk-active [class*='uk-transition-fade'] {
   opacity: 1; }
 
 /*
@@ -16840,18 +17165,20 @@ td.uk-text-break {
   -webkit-transform: scale3d(1, 1, 1);
   transform: scale3d(1, 1, 1); }
 
-.uk-transition-toggle:hover .uk-transition-scale-up,
-.uk-transition-toggle.uk-hover .uk-transition-scale-up {
-  opacity: 1;
-  -webkit-transform: scale3d(1.1, 1.1, 1);
-  transform: scale3d(1.1, 1.1, 1); }
-
 .uk-transition-scale-down {
   -webkit-transform: scale3d(1.1, 1.1, 1);
   transform: scale3d(1.1, 1.1, 1); }
 
+.uk-transition-toggle:hover .uk-transition-scale-up,
+.uk-transition-toggle.uk-hover .uk-transition-scale-up,
+.uk-transition-active.uk-active .uk-transition-scale-up {
+  opacity: 1;
+  -webkit-transform: scale3d(1.1, 1.1, 1);
+  transform: scale3d(1.1, 1.1, 1); }
+
 .uk-transition-toggle:hover .uk-transition-scale-down,
-.uk-transition-toggle.uk-hover .uk-transition-scale-down {
+.uk-transition-toggle.uk-hover .uk-transition-scale-down,
+.uk-transition-active.uk-active .uk-transition-scale-down {
   opacity: 1;
   -webkit-transform: scale3d(1, 1, 1);
   transform: scale3d(1, 1, 1); }
@@ -16912,7 +17239,8 @@ td.uk-text-break {
 
 /* Hover */
 .uk-transition-toggle:hover [class*='uk-transition-slide'],
-.uk-transition-toggle.uk-hover [class*='uk-transition-slide'] {
+.uk-transition-toggle.uk-hover [class*='uk-transition-slide'],
+.uk-transition-active.uk-active [class*='uk-transition-slide'] {
   opacity: 1;
   -webkit-transform: translateX(0) translateY(0);
   transform: translateX(0) translateY(0); }

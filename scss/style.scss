@@ -4,8 +4,8 @@ Theme URI: http://bootsmooth.com/wordpress-theme/
 Author: Clarence Pearson
 Author URI:  http://bootsmooth.com/author
 Description: WordPress Theme for Developers
-Version: 4.0.0
-License: GPL 
+Version: 1.1.0
+License: MIT License 
 License URI: http://bootsmooth.com/license
 Text Domain: 
 Tags:
@@ -19,6 +19,8 @@ Tags:
 
 @import "../node_modules/uikit/src/scss/uikit";
 @import "../node_modules/uikit/src/scss/uikit-theme";
+
+@import "ui";
 
 // footer 
 footer.page-footer {
