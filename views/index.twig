@@ -3,9 +3,7 @@
 {% block content %}
 <div class="uk-container uk-margin">
 	{% if banner_widgets %}
-		{{ banner_widgets }}
-	{% else %}
-		Banner Widget Area.
+	{{ banner_widgets }}
 	{% endif %}
 	{% set first = posts|first %}
 	<div  uk-grid>
