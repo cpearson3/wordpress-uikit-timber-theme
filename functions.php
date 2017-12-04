@@ -50,7 +50,9 @@ class BootsmoothSite extends TimberSite {
 	function add_to_context( $context ) {
 		$context['menu'] = new TimberMenu();
 		$context['site'] = $this;
-		$context['header_widget'] = Timber::get_widgets( 'Page Header' );
+		$context['sidebar_widgets'] = Timber::get_widgets( 'Sidebar' );
+		$context['banner_widgets'] = Timber::get_widgets( 'Banner' );
+		$context['footer_widgets'] = Timber::get_widgets( 'Footer' );
 		return custom_context_options($context);
 	}
 
@@ -73,12 +75,31 @@ new BootsmoothSite();
 include 'shortcodes.php';
 
 // define widget areas
-if ( function_exists('register_sidebar') )
-  register_sidebar(array(
-    'name' => 'Page Header',
-    'before_widget' => '<div class = "widget-cta">',
-    'after_widget' => '</div>',
-    'before_title' => '<h3>',
-    'after_title' => '</h3>',
-  )
-);
+if ( function_exists('register_sidebar') ) {
+	register_sidebar(array(
+		'name' => 'Sidebar',
+		'before_widget' => '<div class="sidebar-widget">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3>',
+		'after_title' => '</h3>',
+		)
+	);
+
+	register_sidebar(array(
+		'name' => 'Banner',
+		'before_widget' => '<div class="banner-widget">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3>',
+		'after_title' => '</h3>',
+		)
+	);
+
+	register_sidebar(array(
+		'name' => 'Footer',
+		'before_widget' => '<div class="footer-widget">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3>',
+		'after_title' => '</h3>',
+		)
+	);
+}

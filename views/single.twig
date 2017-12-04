@@ -2,14 +2,16 @@
 
 {% block content %}
 {% if post.get_thumbnail %}
-<header class="uk-height-medium uk-background-cover uk-background-fixed uk-overflow-hidden uk-flex uk-flex-top" style="background-image: url('{{post.thumbnail.src}}');">
+<header class="uk-inline uk-height-medium uk-background-cover uk-background-fixed uk-overflow-hidden uk-flex uk-flex-top" style="background-image: url('{{post.thumbnail.src}}');">
 {% else %}
-<header class="uk-height-medium uk-background-muted uk-overflow-hidden uk-light uk-flex uk-flex-top" style="background-image: url('{{post.thumbnail.src}}');">
+<header class="uk-inline uk-height-medium uk-background-muted uk-overflow-hidden uk-light uk-flex uk-flex-top" style="background-image: url('{{post.thumbnail.src}}');">
 {% endif %}
-    <div class="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical uk-light">
-        <h1 class="uk-heading-line uk-text-center uk-light">{{post.title}}</h1>
-        <p class="uk-light">{{post.date | date}}</p>
-    </div>
+	<div class="uk-position-cover uk-overlay uk-overlay-primary">
+		<div class="uk-overlay uk-width-1-2@m uk-text-center uk-margin-auto uk-position-center">
+			<h1 class="uk-heading-line uk-text-center uk-light">{{post.title}}</h1>
+			<p class="uk-light">{{post.date | date}}</p>
+		</div>
+	</div>
 </header>
 <section class="uk-section">
 	<div class="uk-container uk-width-2-3@s uk-article post-type-{{post.post_type}}" id="post-{{post.ID}}">

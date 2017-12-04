@@ -73,6 +73,15 @@ footer.page-footer {
     }
 }
 
+// posts
+header {
+	.uk-overlay {
+		h1, p {
+			color: #333;
+		}
+	}
+}
+
 // single 
 .single {
     h1 {
@@ -84,4 +93,40 @@ footer.page-footer {
             text-shadow: 2px 2px 6px #000;
         }
     }
+}
+
+// widget areas
+
+.sidebar-widget { 
+	@extend .uk-margin;
+
+	ul {
+		@extend .uk-list;
+		@extend .uk-list-divider;
+	}
+
+	form {
+		display: flex;
+		
+		input[type="text"] {
+			width: auto !important;
+		}
+	}
+}
+
+// search
+form#searchform {
+	@extend .uk-form-horizontal;
+
+	label {
+		@extend .uk-form-label;
+	}
+
+	#s {
+		@extend .uk-input;
+	}
+
+	#searchsubmit {
+		@extend .uk-button;
+	}
 }

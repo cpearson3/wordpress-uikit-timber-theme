@@ -1,0 +1,10 @@
+<div class="uk-inline-clip uk-transition-toggle">
+	<img src="{{first.thumbnail.src}}" alt="" class="uk-transition-scale-up uk-transition-opaque">
+	<div class="uk-overlay-default uk-overlay uk-position-center uk-box-shadow-large">
+		<h1>{{first.title}}</h1>
+		<p class="uk-article-meta">
+			{{ first.post_date|date('F j, Y') }} | {{ first.terms('category') | join(', ') }}
+		</p>
+		<a href="{{first.link}}">Read</a>
+	</div>
+</div>

@@ -3,20 +3,20 @@
 {% block content %}
 <div class="uk-container">
     <div uk-grid>
-        <div class="uk-width-3-4 uk-article">
+        <div class="uk-width-2-3@m uk-article">
             {% if title %}
             <h1 class="uk-article-title"><span>{{title}}</span></h1>
             {% endif %}
             {% if posts %}
             {% for post in posts %}
-            	{% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
+            	{% include 'tease-article.twig' %}
             {% endfor %}
             {% else %}
             <p>No results found.</p>
             {% endif %}
             {% include 'pagination.twig' %}
         </div>
-        <aside class="uk-width-1-4">
+        <aside class="uk-width-1-3@m">
             {% include 'sidebar.twig' %}
         </aside>
     </div>

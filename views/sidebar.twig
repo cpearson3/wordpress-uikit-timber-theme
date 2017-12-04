@@ -1,4 +1,5 @@
-<h5>Latest Posts</span></h5>
-{% filter shortcodes %}
-[blogs]
-{% endfilter %}
+{% if sidebar_widgets %}
+	{{sidebar_widgets}}
+{% else %}
+	Sidebar Widget Area.
+{% endif %}

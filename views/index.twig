@@ -1,28 +1,34 @@
 {% extends "base.twig" %}
 
 {% block content %}
-<header class="uk-section">
-    <div class="uk-container">
-        <div uk-grid>
-            <div class="uk-width-2-3@s">
-                <h1>{{title}}</h1>
-            </div>
-            <div class="uk-width-1-3@s">
-                <div class="uk">
-                    {{ header_widget }}
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
 <div class="uk-container uk-margin">
-    <div class="uk-child-width-1-3@s uk-grid-match" uk-grid-parallax >
-        {% for post in posts %}
-        <div>
-        	{% include 'tease.twig' %}
-        </div>
-        {% endfor %}
-    </div>
-    {% include 'pagination.twig' %}
+	{% if banner_widgets %}
+		{{ banner_widgets }}
+	{% else %}
+		Banner Widget Area.
+	{% endif %}
+	{% set first = posts|first %}
+	<div  uk-grid>
+		<div class="uk-width-2-3@m ">
+			{% if first and paged == 0 %}
+			{% set post = first %}
+			{% set posts = posts | slice(1) %}
+			<header class="uk-margin-bottom uk-box-shadow-medium">
+				{% include 'tease.twig' %}
+			</header>
+			{% endif %}
+			<div class="uk-child-width-1-2@s uk-grid-match" uk-grid-parallax>
+				{% for post in posts %}
+				<div>
+					{% include 'tease.twig' %}
+				</div>
+				{% endfor %}
+			</div>
+			{% include 'pagination.twig' %}
+		</div>
+		<div class="uk-width-1-3@m">
+			{% include 'sidebar.twig' %}
+		</div>
+	</div>
 </div>
 {% endblock %}

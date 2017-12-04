@@ -15,9 +15,17 @@
 
 $context = Timber::get_context();
 
-$context['posts'] = Timber::get_posts();
+$context['posts'] = Timber::get_posts( 
+	array(
+		'posts_per_page' => 9,
+		'paged' => $paged
+	)
+);
 $post = new TimberPost();
 $context['title'] =  get_the_title( $post->ID );
+$context['pagination'] = Timber::get_pagination();
+$context['paged'] = $paged;
+
 $templates = array( 'index.twig' );
 if ( is_home() ) {
 	array_unshift( $templates, 'home.twig' );
