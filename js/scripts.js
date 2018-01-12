@@ -3,10 +3,8 @@
 
 class App {
 	
-	constructor(opts = {}) {
-		
-		// initalize offcanvas
-		//UIkit.offcanvas('#offcanvas').toggle();
+	constructor() {
+		console.log('Hello');
 	}
 	
 };

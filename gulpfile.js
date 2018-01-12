@@ -1,31 +1,23 @@
 'use strict';
 
-// set paths
-var config = {
-    sassPaths: [
-        './bootsmooth/sass/',
-        './scss/'
-    ],
-    jsPaths: [
-      './js/scripts.js'
-    ]
-};
-
-// dependency requirements
 var gulp   = require('gulp'),
     sass   = require('gulp-sass'),
     rename = require('gulp-rename'),
     csso = require('gulp-csso'),
 	babelify = require('babelify'),
     browserify = require("browserify"),
-    connect = require("gulp-connect"),
-    source = require("vinyl-source-stream");
+    source = require("vinyl-source-stream"),
+	postcss    = require('gulp-postcss');
 
 // Styles task
 gulp.task('stylesheet', function () {
   return gulp.src('./scss/style.scss')
-    .pipe(sass().on('error', sass.logError))
-    .pipe(rename('style.css'))
+    .pipe(sass({
+      includePaths: ['./node_modules/']
+	}).on('error', sass.logError))
+	.pipe(csso())
+	.pipe( postcss([ require('precss'), require('autoprefixer') ]) )
+	.pipe(rename('style.css'))
     .pipe(gulp.dest('./'));
 });
 

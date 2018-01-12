@@ -2,9 +2,9 @@
 
 {% block content %}
 {% if post.get_thumbnail %}
-<header class="uk-inline uk-height-medium uk-background-cover uk-background-fixed uk-overflow-hidden uk-flex uk-flex-top" style="background-image: url('{{post.thumbnail.src}}');">
+<header class="uk-inline uk-height-large uk-background-cover uk-background-fixed uk-overflow-hidden uk-flex uk-flex-top" style="background-image: url('{{post.thumbnail.src}}');">
 {% else %}
-<header class="uk-inline uk-height-medium uk-background-muted uk-overflow-hidden uk-light uk-flex uk-flex-top" style="background-image: url('{{post.thumbnail.src}}');">
+<header class="uk-inline uk-height-large uk-background-muted uk-overflow-hidden uk-light uk-flex uk-flex-top" style="background-image: url('{{post.thumbnail.src}}');">
 {% endif %}
 	<div class="uk-position-cover uk-overlay uk-overlay-primary">
 		<div class="uk-overlay uk-width-1-2@m uk-text-center uk-margin-auto uk-position-center">

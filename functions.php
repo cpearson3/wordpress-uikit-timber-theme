@@ -1,5 +1,4 @@
 <?php
-include 'theme_options.php';
 
 // Check for Timber
 if ( ! class_exists( 'Timber' ) ) {
@@ -51,20 +50,12 @@ class BootsmoothSite extends TimberSite {
 		$context['menu'] = new TimberMenu();
 		$context['site'] = $this;
 		$context['sidebar_widgets'] = Timber::get_widgets( 'Sidebar' );
-		$context['banner_widgets'] = Timber::get_widgets( 'Banner' );
-		$context['footer_widgets'] = Timber::get_widgets( 'Footer' );
-		return custom_context_options($context);
-	}
-
-	function myfoo( $text ) {
-		$text .= ' bar!';
-		return $text;
+		return $context;
 	}
 
 	function add_to_twig( $twig ) {
 		/* this is where you can add your own functions to twig */
 		$twig->addExtension( new Twig_Extension_StringLoader() );
-		$twig->addFilter('myfoo', new Twig_SimpleFilter('myfoo', array($this, 'myfoo')));
 		return $twig;
 	}
 }
@@ -74,32 +65,34 @@ new BootsmoothSite();
 // include shortcodes
 include 'shortcodes.php';
 
-// define widget areas
-if ( function_exists('register_sidebar') ) {
-	register_sidebar(array(
-		'name' => 'Sidebar',
-		'before_widget' => '<div class="sidebar-widget">',
-		'after_widget' => '</div>',
-		'before_title' => '<h3>',
-		'after_title' => '</h3>',
-		)
-	);
+function register_theme_features() {
+	// Register widget areas
+	if ( function_exists('register_sidebar') ) {
+		register_sidebar(array(
+			'name' => 'Sidebar',
+			'before_widget' => '<div class="sidebar-widget">',
+			'after_widget' => '</div>',
+			'before_title' => '<h5 class="usa-heading-alt">',
+			'after_title' => '</h5>',
+			)
+		);
 
-	register_sidebar(array(
-		'name' => 'Banner',
-		'before_widget' => '<div class="banner-widget">',
-		'after_widget' => '</div>',
-		'before_title' => '<h3>',
-		'after_title' => '</h3>',
-		)
-	);
+		register_sidebar(array(
+			'name' => 'Banner',
+			'before_widget' => '<div class="banner-widget">',
+			'after_widget' => '</div>',
+			'before_title' => '<div>',
+			'after_title' => '</div>',
+			)
+		);
+	}
 
-	register_sidebar(array(
-		'name' => 'Footer',
-		'before_widget' => '<div class="footer-widget">',
-		'after_widget' => '</div>',
-		'before_title' => '<h3>',
-		'after_title' => '</h3>',
+	// Register navigation menus
+	register_nav_menus(
+		array(
+			'primary' => __( 'Primary Menu' ),
+			'secondary' => __( 'Secondary Menu' )
 		)
 	);
 }
+add_action( 'init', 'register_theme_features' );

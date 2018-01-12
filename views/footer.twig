@@ -1,18 +1,12 @@
 <footer class="page-footer">
     <nav class="uk-navbar-container uk-margin" uk-navbar>
         <div class="uk-container">
-            <div class="uk-navbar-left">
+            <div class="uk-navbar-center uk-flex-center">
                 {% for item in menu.get_items %}
                 <div class="uk-navbar-item">
                 	<div><a href="{{item.get_link}}">{{item.title}}</a></div>
                 </div>
                 {% endfor %}
-                <!--div class="uk-navbar-item">
-                    <form action="/">
-                        <input class="uk-input uk-form-width-small" type="text" name="s" placeholder="Search">
-                        <button class="uk-button uk-button-default"><span uk-icon="icon: search"></span></button>
-                    </form>
-                </div -->
             </div>
         </div>
     </nav>

@@ -11,14 +11,19 @@ Text Domain:
 Tags:
 */
 
-@import "variables";
 
-@import "../node_modules/uikit/src/scss/variables";
-@import "../node_modules/uikit/src/scss/variables-theme";
+// Import variables
+@import "variables.scss";
 
+// Import default variables and available mixins.
+@import "uikit/src/scss/variables-theme.scss";
+@import "uikit/src/scss/mixins-theme.scss";
 
-@import "../node_modules/uikit/src/scss/uikit";
-@import "../node_modules/uikit/src/scss/uikit-theme";
+// Mixin overwrites.
+@mixin hook-card() { color: #000; }
+
+// Import UIkit.
+@import "uikit/src/scss/uikit-theme.scss";
 
 @import "ui";
 
@@ -63,15 +68,6 @@ footer.page-footer {
 
 }
 
-// offcanas
-.uk-offcanvas-bar {
-    @extend .uk-box-shadow-large;
-    background-color: $global-muted-background;
-    
-    .uk-search-default .uk-search-input {
-        background-color: #fff;
-    }
-}
 
 // posts
 header {

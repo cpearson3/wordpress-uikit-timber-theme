@@ -6,16 +6,18 @@
 {% endblock %}
 <body class="{{body_class}}" data-template="base.twig">
 	{% block navigtion %}
-	<nav class="uk-navbar-container" role="navigation" uk-navbar>
-		<div class="uk-navbar-left">
-	    	<a class="uk-navbar-item uk-logo" href="{{site.url}}">{{site.title}}</a>
-	    </div>
-	    <div class="uk-navbar-right">
-	        <ul class="uk-navbar-nav">
-           		<li><a uk-toggle="target: #offcanvas-usage" uk-icon="icon: menu"></a></li>
-	        </ul>
-	    </div>
-	</nav>
+	<div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
+		<nav class="uk-navbar-container" role="navigation" uk-navbar>
+			<div class="uk-navbar-left">
+				<a class="uk-navbar-item uk-logo" href="{{site.url}}">{{site.title}}</a>
+			</div>
+			<div class="uk-navbar-right">
+				<ul class="uk-navbar-nav">
+					<li><a uk-toggle="target: #offcanvas-usage" uk-icon="icon: menu"></a></li>
+				</ul>
+			</div>
+		</nav>
+	</div>
 	<div class="uk-offcanvas-content">
 		<!--
 	    <button class="uk-button uk-button-default uk-margin-small-right" type="button" uk-toggle="target: #offcanvas-usage">Open</button>

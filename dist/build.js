@@ -7,13 +7,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 // Example class and DOMContentLoaded listener
 
 var App = function App() {
-
-	// initalize offcanvas
-	//UIkit.offcanvas('#offcanvas').toggle();
-
-	var opts = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
 	_classCallCheck(this, App);
+
+	console.log('Hello');
 };
 
 ;
