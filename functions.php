@@ -49,7 +49,8 @@ class BootsmoothSite extends TimberSite {
 	function add_to_context( $context ) {
 		$context['menu'] = new TimberMenu();
 		$context['site'] = $this;
-		$context['sidebar_widgets'] = Timber::get_widgets( 'Sidebar' );
+		$context['sidebar_widgets'] = Timber::get_widgets( 'Single Post Sidebar' );
+		$context['banner_widgets'] = Timber::get_widgets( 'Archive Banner' );
 		return $context;
 	}
 
@@ -69,7 +70,7 @@ function register_theme_features() {
 	// Register widget areas
 	if ( function_exists('register_sidebar') ) {
 		register_sidebar(array(
-			'name' => 'Sidebar',
+			'name' => 'Single Post Sidebar',
 			'before_widget' => '<div class="sidebar-widget">',
 			'after_widget' => '</div>',
 			'before_title' => '<h5 class="usa-heading-alt">',
@@ -78,7 +79,7 @@ function register_theme_features() {
 		);
 
 		register_sidebar(array(
-			'name' => 'Banner',
+			'name' => 'Archive Banner',
 			'before_widget' => '<div class="banner-widget">',
 			'after_widget' => '</div>',
 			'before_title' => '<div>',

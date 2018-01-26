@@ -105,7 +105,15 @@ header {
 		display: flex;
 		
 		input[type="text"] {
-			width: auto !important;
+			height: $global-control-height;
+			width: 66.67% !important;
+		}
+
+		input[type="submit"] {
+			height: $global-control-height;
+			width: 33.33% !important;
+			float: right;
+			padding: 0 !important;
 		}
 	}
 }
@@ -124,5 +132,22 @@ form#searchform {
 
 	#searchsubmit {
 		@extend .uk-button;
+	}
+}
+
+// banner widget area
+
+.banner-widget-area {
+	@extend .uk-margin;
+}
+
+.banner-widget {
+	// full-width iframe, video and embeds
+	iframe, video, embed {
+		width: 100%;
+	}
+
+	img {
+		@extend .uk-responsive-width;
 	}
 }
