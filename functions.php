@@ -73,8 +73,8 @@ function register_theme_features() {
 			'name' => 'Single Post Sidebar',
 			'before_widget' => '<div class="sidebar-widget">',
 			'after_widget' => '</div>',
-			'before_title' => '<h5 class="usa-heading-alt">',
-			'after_title' => '</h5>',
+			'before_title' => '<h4>',
+			'after_title' => '</h4>',
 			)
 		);
 
