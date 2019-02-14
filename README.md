@@ -5,10 +5,9 @@ A Wordpress Starter Theme built with [UIKit 3](https://getuikit.com/) and the [T
 ## Installation and setup
 
 1. Open a terminal and change to your wp-content/themes folder
-2. Clone the repository: git clone https://github.com/cpearson3/bootsmooth-uikit-theme.git
-3. Install node, npm, and gulp
-4. Install project dependencies: npm install
-5. Build stylesheet and javascript: gulp
+2. Clone the repository: `git clone https://github.com/cpearson3/bootsmooth-uikit-theme.git`
+3. Install project dependencies: `npm install`
+4. Build stylesheet: `npm run build` or `npm run build:prod` (to minimized style.css)
 
 ### Activating the theme
 
@@ -19,15 +18,13 @@ A Wordpress Starter Theme built with [UIKit 3](https://getuikit.com/) and the [T
 
 ## Customizing the stylesheet
 
-The main stylesheet source lives in **scss/style.scss** and is compiled to **style.css**.
-
-Here is where you can import Sass libraries, define variables, and create new styles.
+The main stylesheet source lives in **scss/style.scss** and is compiled to **style.css**. This is where you can import Sass libraries, define variables, and create new styles.
 
 ## License
 
 MIT License
 
-Copyright (c) 2017 Clarence B Pearson III
+Copyright (c) 2019 Clarence B Pearson III
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

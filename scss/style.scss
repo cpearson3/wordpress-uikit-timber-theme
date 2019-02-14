@@ -27,20 +27,58 @@ Tags:
 
 @import "ui";
 
-// footer 
-footer.page-footer {
-    nav {
-        .uk-container {
-            width: 100%;
-        }
-        .uk-navbar-item {
-            padding-left: 0;
-        }
-    }
-    .page-footer-info {
-        text-align: center;
-    }
+// page header
+header {
+	// page navigation
+	nav {
+		a:focus {
+			text-decoration: underline;
+		}
+
+		@media (min-width: #{ $breakpoint-small + 1 }) {
+			.uk-mobile-link {
+				display: none;
+			}
+			.uk-desktop-link {
+				display: block;
+			}
+		}
+
+		@media (max-width: $breakpoint-small) {
+			.uk-desktop-link {
+				display: none;
+			}
+			.uk-mobile-link {
+				display: block;
+			}
+		}
+	}
+
 }
+
+// main content area
+/*
+main {
+
+}
+*/
+
+// footer 
+footer {
+	@extend .uk-background-muted;
+	@extend .uk-padding;
+	@extend .uk-margin-large-top;
+
+	p, ul {
+		margin-top: $list-margin-top;
+	}
+	ul {
+		@extend .uk-list;
+		@extend .uk-link-text;
+	}
+
+}
+
 
 // container padding !important
 .uk-container {
@@ -50,12 +88,10 @@ footer.page-footer {
 
 /* Phone landscape and bigger */
 @media (min-width: $breakpoint-small) {
-
     .uk-container {
         padding-left: $container-padding-horizontal-s !important;
         padding-right: $container-padding-horizontal-s !important;
     }
-
 }
 
 /* Tablet landscape and bigger */
@@ -68,31 +104,14 @@ footer.page-footer {
 
 }
 
-
-// posts
-header {
-	.uk-overlay {
-		h1, p {
-			color: #333;
-		}
-	}
-}
-
-// single 
+// posts single 
+/*
 .single {
-    h1 {
-        line-height: 1.5;
-    }
-    header.uk-background-cover {
-        h1, h2, h3, p {
-            color: #fff;
-            text-shadow: 2px 2px 6px #000;
-        }
-    }
+   
 }
+*/
 
 // widget areas
-
 .sidebar-widget { 
 	@extend .uk-margin;
 
@@ -136,7 +155,6 @@ form#searchform {
 }
 
 // banner widget area
-
 .banner-widget-area {
 	@extend .uk-margin;
 }

@@ -33,7 +33,9 @@ class BootsmoothSite extends TimberSite {
 		add_filter( 'get_twig', array( $this, 'add_to_twig' ) );
 		add_action( 'init', array( $this, 'register_post_types' ) );
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
-		
+		add_action( 'init', array( $this, 'register_widget_areas' ) );
+		add_action( 'init', array( $this, 'register_navigation_menus') );
+
 		parent::__construct();
 	}
 
@@ -45,12 +47,78 @@ class BootsmoothSite extends TimberSite {
 		//this is where you can register custom taxonomies
 	}
 
+	function register_widget_areas() {
+		// Register widget areas
+		if ( function_exists('register_sidebar') ) {
+			register_sidebar(array(
+				'name' => 'Left Sidebar',
+				'before_widget' => '<div class="sidebar-widget">',
+				'after_widget' => '</div>',
+				'before_title' => '<div class="uk-text-large">',
+				'after_title' => '</div>',
+				)
+			);
+	
+			register_sidebar(array(
+				'name' => 'Banner',
+				'before_widget' => '<div class="banner-widget">',
+				'after_widget' => '</div>',
+				'before_title' => '<div>',
+				'after_title' => '</div>',
+				)
+			);
+
+			register_sidebar(array(
+				'name' => 'Footer Area 1',
+				'before_title' => '<div class="uk-text-large">',
+				'after_title' => '</div>'
+				)
+			);
+	
+			register_sidebar(array(
+				'name' => 'Footer Area 2',
+				'before_title' => '<div class="uk-text-large">',
+				'after_title' => '</div>'
+				)
+			);
+
+			register_sidebar(array(
+				'name' => 'Footer Area 3',
+				'before_title' => '<div class="uk-text-large">',
+				'after_title' => '</div>'
+				)
+			);
+
+			register_sidebar(array(
+				'name' => 'Footer Area 4',
+				'before_title' => '<div class="uk-text-large">',
+				'after_title' => '</div>'
+				)
+			);
+		}
+	}
+
+	function register_navigation_menus() {
+		// Register navigation menus
+		register_nav_menus(
+			array(
+				'primary' => __( 'Primary Menu' ),
+				'secondary' => __( 'Secondary Menu' )
+			)
+		);
+	}
+
 	// register custom context variables
 	function add_to_context( $context ) {
 		$context['menu'] = new TimberMenu();
+		$context['secondary_menu'] = new TimberMenu('Secondary Menu');
 		$context['site'] = $this;
-		$context['sidebar_widgets'] = Timber::get_widgets( 'Single Post Sidebar' );
-		$context['banner_widgets'] = Timber::get_widgets( 'Archive Banner' );
+		$context['sidebar_widgets'] = Timber::get_widgets( 'Left Sidebar' );
+		$context['banner_widgets'] = Timber::get_widgets( 'Banner' );
+		$context['footer_area_1'] = Timber::get_widgets( 'Footer Area 1' );
+		$context['footer_area_2'] = Timber::get_widgets( 'Footer Area 2' );
+		$context['footer_area_3'] = Timber::get_widgets( 'Footer Area 3' );
+		$context['footer_area_4'] = Timber::get_widgets( 'Footer Area 4' );
 		return $context;
 	}
 
@@ -62,38 +130,3 @@ class BootsmoothSite extends TimberSite {
 }
 
 new BootsmoothSite();
-
-// include shortcodes
-include 'shortcodes.php';
-
-function register_theme_features() {
-	// Register widget areas
-	if ( function_exists('register_sidebar') ) {
-		register_sidebar(array(
-			'name' => 'Single Post Sidebar',
-			'before_widget' => '<div class="sidebar-widget">',
-			'after_widget' => '</div>',
-			'before_title' => '<h4>',
-			'after_title' => '</h4>',
-			)
-		);
-
-		register_sidebar(array(
-			'name' => 'Archive Banner',
-			'before_widget' => '<div class="banner-widget">',
-			'after_widget' => '</div>',
-			'before_title' => '<div>',
-			'after_title' => '</div>',
-			)
-		);
-	}
-
-	// Register navigation menus
-	register_nav_menus(
-		array(
-			'primary' => __( 'Primary Menu' ),
-			'secondary' => __( 'Secondary Menu' )
-		)
-	);
-}
-add_action( 'init', 'register_theme_features' );

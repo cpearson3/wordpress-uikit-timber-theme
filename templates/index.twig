@@ -3,13 +3,13 @@
 {% block content %}
 <div class="uk-container uk-margin-large-top uk-margin-large-bottom">
 	{% if banner_widgets %}
-	<div class="banner-widget-area">
+	<div class="banner-widget-area uk-margin-large">
 		{{ banner_widgets }}
 	</div>
 	{% endif %}
 	{% set first = posts|first %}
 	<div class="uk-margin">
-		<div class="uk-child-width-1-3@s uk-grid-match" uk-grid-parallax>
+		<div class="uk-child-width-1-3@s uk-grid-match" uk-grid="masonry: true">
 			{% for post in posts %}
 			<div>
 				{% include 'tease.twig' %}

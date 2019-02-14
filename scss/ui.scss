@@ -1,7 +1,9 @@
-// global ui components
+// accessibility
 
-// buttons
-.button {
-	@extend .uk-button;
+:focus {
+    outline: $global-color dashed 2px;
+    outline-color: $global-color;
+    outline-style: dashed;
+	outline-width: 2px;
+    outline-offset: 4px;
 }
- 

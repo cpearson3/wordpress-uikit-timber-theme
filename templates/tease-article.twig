@@ -1,6 +1,6 @@
 {% block content %}
 <article>
-	<h3 class="uk-card-title">{{post.title}}</h3>
+	<h3 class="uk-card-title"><a href="{{post.link}}">{{post.title}}</a></h3>
 	<p class="uk-text-small uk-text-uppercase">{{post.post_type}}</p>
 	{% if post.post_type == 'post' %}
 	<p class="uk-article-meta">
@@ -11,6 +11,5 @@
 	{% if post.post_content %}
     <p>{{post.post_content|excerpt(40)}}...</p>
 	{% endif %}
-    <p><a href="{{post.link}}">Read</a></p>
 </article>
 {% endblock %}

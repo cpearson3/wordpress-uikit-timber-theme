@@ -2,7 +2,7 @@
 
 ## MIT License
 
-Copyright &copy; 2016 Bootsmooth 
+Copyright &copy; 2019 Clarence Pearson
 
 Built by Clarence B Pearson III // @cp3dev
 

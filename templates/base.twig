@@ -1,0 +1,79 @@
+{% block html_head_container %}
+{% include 'html-header.twig' %}
+	{% block head %}
+	{% endblock %}
+	</head>
+{% endblock %}
+<body class="{{body_class}}" data-template="base.twig">
+	{% block navigtion %}
+	<header role="banner">
+		<nav class="uk-navbar-container uk-navbar-transparent" role="navigation" uk-navbar="mode: click">
+			<div class="uk-navbar-left">
+				<a class="uk-navbar-item uk-logo" href="{{site.url}}">{{site.title}}</a>
+			</div>
+			<div class="uk-navbar-right">
+				<ul class="uk-navbar-nav">
+					{% for item in menu.get_items %}
+					{% if item.get_children %}
+					<li class="uk-desktop-link {{item.classes | join(' ')}}">
+						<a href="#">{{item.title}} <span aria-hidden="true" uk-icon="icon:triangle-down"></span></a>
+						<div class="uk-navbar-dropdown">
+							<ul class="uk-nav uk-navbar-dropdown-nav">
+								{% for child in item.get_children %}
+								<li><a class="dropdown-item" href="{{child.get_link}}">{{child.title}}</a></li>
+								{% endfor %}
+							</ul>
+						</div>
+					</li>
+					{% else %}
+					<li class="uk-desktop-link {{item.classes | join(' ')}}">
+						<a href="{{item.get_link}}">{{item.title}}</a>
+					</li>
+					{% endif %}
+					{% endfor %}
+					<li class="uk-mobile-link"><a uk-toggle="target: #offcanvas-usage" uk-icon="icon: menu"></a></li>
+				</ul>
+			</div>
+		</nav>
+		<div class="uk-offcanvas-content" aria-hidden="true">
+			<div id="offcanvas-usage" class="offcanvas-nav-primary" uk-offcanvas="flip: true">
+				<div class="uk-offcanvas-bar">
+					<ul class="uk-nav uk-nav-default">
+					{% for item in menu.get_items %}
+						<li class="{{item.classes | join(' ')}}">
+							<a href="{{item.get_link}}">{{item.title}}</a>
+							{% if item.get_children %}
+							<ul class="uk-nav-sub">
+							{% for child in item.get_children %}
+								<li><a href="{{child.get_link}}">{{child.title}}</a></li>
+							{% endfor %}
+							</ul>
+							{% endif %}
+						</li>
+					{% endfor %}
+					</ul>
+				<form class="uk-search uk-search-default uk-margin" action="{{site.url}}/">
+					<span uk-search-icon></span>
+						<input class="uk-search-input" name='s' type="search" placeholder="Search">
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</header>
+	{% endblock %}
+	<main role="main">
+	{% block content %}
+		Sorry, no content
+	{% endblock %}
+	</main>
+
+	{% block footer %}
+	{% include 'footer.twig' %}
+
+	{{ function('wp_footer') }}
+	{% endblock %}
+	<script src="{{site.theme.link}}/js/scripts.js"></script>
+
+</body>
+</html>

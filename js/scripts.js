@@ -1,18 +1,6 @@
-// Main Javascipt Source
-// Example class and DOMContentLoaded listener
-
-class App {
-	
-	constructor() {
-		console.log('Hello');
-	}
-	
-};
+// scripts.js
 
 document.addEventListener("DOMContentLoaded", function(event) { 
-
-	// create new App object
-	let $bs = new App();
-	window.$bs = $bs;
-	
+	// onload code here
+		
 });
