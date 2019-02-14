@@ -7,7 +7,7 @@ A Wordpress Starter Theme built with [UIKit 3](https://getuikit.com/) and the [T
 1. Open a terminal and change to your wp-content/themes folder
 2. Clone the repository: `git clone https://github.com/cpearson3/bootsmooth-uikit-theme.git`
 3. Install project dependencies: `npm install`
-4. Build stylesheet: `npm run build` or `npm run build:prod` (to minimized style.css)
+4. Build stylesheet: `npm run build`
 
 ### Activating the theme
 
